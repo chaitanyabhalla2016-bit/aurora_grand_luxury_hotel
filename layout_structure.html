@@ -1,0 +1,272 @@
+🧭 GLOBAL STRUCTURE (ALL PAGES)
+<body>
+ ├── Navbar (logo left, links right)
+ ├── Main content (page-specific sections)
+ ├── Footer (brand + socials)
+ └── JS (navigation + small effects)
+</body>
+
+🔝 NAVBAR (ALL PAGES)
+
+Layout (pseudo):
+
+Navbar (fixed / sticky)
+ ├── Left: Hotel logo text ("Aurora Grand")
+ └── Right: Nav links
+      - Home
+      - Rooms
+      - Experience
+      - Contact
+      - Book Now (highlighted)
+
+
+Behavior
+
+Transparent on top
+
+Solid dark background on scroll
+
+Active link highlighted
+
+Font Awesome icons
+
+fa-hotel
+
+fa-bed
+
+fa-spa
+
+fa-phone
+
+fa-calendar-check
+
+🏠 PAGE 1 — HOME (index.html)
+Section 1️⃣ HERO
+Section: Hero (full viewport height)
+ ├── Left (60%)
+ │    ├── Small tagline
+ │    ├── Main heading (2 lines)
+ │    ├── Subheading
+ │    └── Buttons: [Book Now] [Explore]
+ └── Right (40%)
+      └── Hero image (luxury hotel exterior)
+
+
+Text
+
+Tagline: International Luxury Resort
+
+Heading: Where Elegance
+Meets the World
+
+Sub: An unforgettable stay across global destinations.
+
+Image
+
+https://unsplash.com/photos/luxury-hotel-exterior
+
+Section 2️⃣ ABOUT
+Section: About
+ ├── Left: Image (lobby / interior)
+ └── Right:
+      ├── Section title
+      ├── Paragraph (3–4 lines)
+      └── Read More link
+
+
+Content
+
+Aurora Grand Hotel blends timeless architecture with modern comfort, designed for global travelers seeking quiet luxury.
+
+Section 3️⃣ SIGNATURE EXPERIENCES
+Section: 4 cards (horizontal)
+ ├── Card: Dining
+ ├── Card: Spa
+ ├── Card: Infinity Pool
+ └── Card: Private Tours
+
+
+Each card:
+
+Icon (Font Awesome)
+
+Title
+
+One-line description
+
+Icons:
+
+fa-utensils
+
+fa-spa
+
+fa-water
+
+fa-map-location-dot
+
+Section 4️⃣ TESTIMONIALS
+Section: Testimonials
+ ├── Quote text (center)
+ ├── Guest name
+ └── Dots / arrows (JS slider)
+
+🛏️ PAGE 2 — ROOMS (rooms.html)
+Section 1️⃣ INTRO
+Centered heading + short paragraph
+
+Section 2️⃣ ROOM LIST
+Room Card (repeat 3–4 times)
+ ├── Left: Room image
+ └── Right:
+      ├── Room name
+      ├── Size + capacity
+      ├── Short description
+      └── Price + Book button
+
+
+Rooms:
+
+Deluxe Room
+
+Executive Suite
+
+Presidential Suite
+
+Section 3️⃣ AMENITIES
+Horizontal icon list
+ - King Bed
+ - Rain Shower
+ - Smart TV
+ - High-speed WiFi
+
+
+Icons:
+
+fa-bed
+
+fa-shower
+
+fa-tv
+
+fa-wifi
+
+Section 4️⃣ CTA
+Centered dark section
+ ├── Heading
+ └── Button: Check Availability
+
+🍽️ PAGE 3 — EXPERIENCE (experience.html)
+Section 1️⃣ FINE DINING
+Left: Text
+Right: Restaurant image
+
+Section 2️⃣ SPA & WELLNESS
+Right: Text
+Left: Spa image
+
+
+(Alternate layout from section 1)
+
+Section 3️⃣ POOL & LOUNGE
+Full-width image
+Overlay text bottom-left
+
+Section 4️⃣ LOCAL EXPERIENCES
+3 cards with images
+ - City tours
+ - Yacht experience
+ - Cultural evenings
+
+
+Icons:
+
+fa-city
+
+fa-ship
+
+fa-masks-theater
+
+📞 PAGE 4 — CONTACT (contact.html)
+Section 1️⃣ CONTACT INFO
+3 columns
+ - Address
+ - Phone
+ - Email
+
+
+Icons:
+
+fa-location-dot
+
+fa-phone
+
+fa-envelope
+
+Section 2️⃣ BOOKING FORM
+Form
+ ├── Name
+ ├── Email
+ ├── Check-in
+ ├── Check-out
+ ├── Room Type
+ └── Submit button
+
+Section 3️⃣ MAP
+Embedded Google Map iframe
+
+Section 4️⃣ FINAL CTA
+Centered thank-you text
+
+🎨 CSS DESIGN SYSTEM (NO GRID / FLEX)
+🌈 COLORS
+:root {
+  --bg-dark: #0f172a;
+  --bg-light: #f8fafc;
+  --gold: #c9a14a;
+  --text-light: #e5e7eb;
+  --text-muted: #9ca3af;
+}
+
+🔤 FONTS (GOOGLE FONTS)
+
+Use 2 fonts only
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+}
+
+⭐ FONT AWESOME 7 (FREE CDN)
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
+
+⚙️ MINIMAL JS (CLEAN & USEFUL)
+1️⃣ Page Navigation (SPA-like feel)
+document.querySelectorAll("[data-link]").forEach(link => {
+  link.addEventListener("click", e => {
+    window.location.href = e.target.dataset.link;
+  });
+});
+
+
+Usage:
+
+<button data-link="rooms.html">View Rooms</button>
+
+2️⃣ Sticky Navbar Effect
+window.addEventListener("scroll", () => {
+  document.querySelector(".navbar")
+    .classList.toggle("scrolled", window.scrollY > 50);
+});
+
+3️⃣ Testimonial Slider (basic)
+let index = 0;
+setInterval(() => {
+  testimonials[index].classList.remove("active");
+  index = (index + 1) % testimonials.length;
+  testimonials[index].classList.add("active");
+}, 4000);
