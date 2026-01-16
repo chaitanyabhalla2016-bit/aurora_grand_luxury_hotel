@@ -1,13 +1,17 @@
 const navbar = document.querySelector(".navbar");
-const trigger = document.querySelector(".nav-trigger");
+const hero = document.querySelector("#hero");
 
 const observer = new IntersectionObserver(
   ([entry]) => {
-    navbar.classList.toggle("scrolled", !entry.isIntersecting);
+    if (!entry.isIntersecting) {
+      navbar.classList.add("scrolled");
+    } else {
+      navbar.classList.remove("scrolled");
+    }
   },
   {
-    rootMargin: "-1px 0px 0px 0px"
+    threshold: 0.9
   }
 );
 
-observer.observe(trigger);
+observer.observe(hero);

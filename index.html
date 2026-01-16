@@ -9,7 +9,9 @@
     <link rel="stylesheet" href="./css/index.css">
 </head>
 <body>
+    <div class="nav-trigger"></div>
     <nav id="navbar" class="navbar full-width-container">
+
         <div class="container flex-row-space-between">
             <div class="logo-container">
                 <a href="index.html"><img src="./img/aurora_logo_white.png" alt="Aurora Grand Hotel"></a>
@@ -24,15 +26,20 @@
         </div>
         
     </nav>
-    <div class="nav-trigger"></div>
+
     <main>
-        <header class="full-width-container page-section">
-            <div class="container">
-                <div class="sub-container" id="hero">
-                    <div class="hero-overlay">
+        <header class="full-width-container page-section"  id="hero">
+            <a href="#Experiences" class="pos-abs-bott-center z-top">
+                <i class="fas fa-angle-down"></i>
+            </a>
+            <div class="hero-overlay">
+                <div class="container">
+                    <div class="sub-container flex-column-left-center">
+
+                        
                         <span class="accent-line"></span>
 
-                        <p class="hero-location">Lake Como, Italy</p>
+                        <p class="hero-location">On the Shores of Lake Como</p>
 
                         <h1 class="hero-title">
                         Where Silence<br>
@@ -44,10 +51,45 @@
                         </p>
 
                         <a href="#" class="hero-btn">Discover the Retreat</a>
+
                     </div>
                 </div>
             </div>
         </header>
+        <section class="full-width-container" id="experiences">
+            <div class="container">
+                <div class="experiences-wrapper">
+                <h2 class="section-heading">Curated Experiences</h2>
+
+                <div class="exp-cards-container">
+                    <div class="experience-card">
+                    <i class="fas fa-spa experience-icon"></i>
+                    <h3 class="home-exp-card-title">Spa & Wellness</h3>
+                    <p class="home-exp-card-line">
+                        Quiet rituals designed to restore body and mind.
+                    </p>
+                    </div>
+
+                    <div class="experience-card">
+                    <i class="fas fa-utensils experience-icon"></i>
+                    <h3 class="home-exp-card-title">Private Dining</h3>
+                    <p class="home-exp-card-line">
+                        Intimate cuisine crafted for unhurried evenings.
+                    </p>
+                    </div>
+
+                    <div class="experience-card">
+                    <i class="fas fa-water-ladder experience-icon"></i>
+                    <h3 class="home-exp-card-title">Infinity Pool</h3>
+                    <p class="home-exp-card-line">
+                        Where water dissolves into the horizon.
+                    </p>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </section>
+
     </main>
     <footer class="full-width-container">
         <div class="container">
