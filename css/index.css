@@ -27,6 +27,7 @@ body {
   font-weight: 500;
 }
 
+
 h1, h2, h3, h4 {
   font-family: var(--heading-font);
   font-weight: 500;
@@ -38,22 +39,64 @@ h1, h2, h3, h4 {
     padding: 0;
     box-sizing: border-box;
 }
-
+.bg-filter{
+  background-color: rgba(15, 23, 42, 0.55); /* lighter, editorial */
+  backdrop-filter: blur(2px);
+}
 .container {
     max-width: 1440px;
     margin: 0 auto;
     width: 80%;
+    height: 100%;
+}
+
+.h-100vh{
+  height: 100vh;
+}
+
+a.section-btn {
+    text-decoration: none;
+    color: var(--gold);
+    box-shadow: 0px 0px 1px 1px var(--gold-alpha);
+    padding: 5px 15px;
+    border-radius: 30px;
+    font-size: 0.9rem !important;
+    text-transform: uppercase;
+    min-width: 200px;
+    display: flex;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+a.section-btn:hover {
+    box-shadow: 0px 0px 8px 2px var(--gold);
+    transform: translateY(-6px);
+}
+.bg-light{
+  background-color: var(--bg-light);
+}
+.bg-dark{
+  background-color: var(--bg-dark);
+}
+.text-muted{
+  color: var(--text-muted) !important;
+}
+.text-light{
+  color: var(--bg-light) !important;
+}
+.text-dark{
+  color: var(--bg-dark) !important;
 }
 .sub-container {
     min-height: 100svh;
     width: 100%;
     display: flex;
 }
-section .container{
-  padding: 100px 0;
+.pos-relative{
+  position: relative;
 }
 .section-heading{
   text-transform: uppercase;
+  color: var(--gold);
 }
 main{
   flex: 1;  
@@ -92,10 +135,22 @@ img {
   height: auto;
   display: block;
 }
+.flex-row{
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
 .flex-row-center {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.flex-row-end-center {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
   align-items: center;
   gap: 1rem;
 }
@@ -105,12 +160,50 @@ img {
   justify-content: space-between;
   align-items: center;
 }
+.flex-column-center{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
 .flex-column-left-center{
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
   gap: 10px;
+}
+.flex-column-start-center{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+}
+.flex-column-start-sb{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+.fd-revered{
+  flex-direction: column-reverse;
+}
+.mt-2{
+  margin-top: 0.5rem;
+}
+.mt-4{
+  margin-top: 1rem;
+}
+
+.p0-20{
+  padding: 0px 10px;
+}
+
+.p5020{
+  padding: 50px 20px;
 }
 /* Navbar styles */
 .navbar{
@@ -149,7 +242,7 @@ a.nav-link {
     align-items: center;
     justify-content: center;
     gap: 0.3rem;
-    color: var(--text-muted);
+    color: var(--text-light);
     font-size: 1.1rem;
 }
 .navbar.scrolled {
@@ -232,8 +325,8 @@ header {
     height: 100%;
     background: linear-gradient(
       to right,
-      rgba(0,0,0,0.75),
-      rgba(0,0,0,0.45),
+      rgba(0,0,0,0.55),
+      rgba(0,0,0,0.55),
       rgba(0,0,0,0.1)
     );
     z-index: 1;
@@ -263,14 +356,14 @@ header {
 }
 .hero-location{
   font-size: 1.25rem;
-  color: var(--text-muted);
+  color: var(--gold);
   margin-top: 0.5rem;
   letter-spacing: 0.3em;
   text-transform: uppercase;
 }
 .hero-subtext{
   font-size: 1.125rem;
-  color: var(--text-muted);
+  color: var(--gold);
   margin-top: 1rem;
 }
 .hero-btn {
@@ -325,26 +418,22 @@ header {
   height: 250px;
   width: 30%;
   max-width: 300px;
-
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 10px;
   padding: 50px 20px;
-
   background-color: #fff;
-
   /* refined shadow */
   box-shadow:
     0 12px 28px rgba(0, 0, 0, 0.08);
-
   transition:
     transform 0.35s ease,
     box-shadow 0.35s ease;
 }
 
 /* Hover micro-interaction */
-.experience-card:hover {
+.experience-card:hover,.rooms-card:hover,.room-card:hover {
   transform: translateY(-6px);
   box-shadow:
     0 18px 36px rgba(0, 0, 0, 0.12);
@@ -362,9 +451,10 @@ header {
 .home-exp-card-title {
   position: relative;
   display: inline-block;
+  color: var(--bg-dark);
 }
 
-.home-exp-card-title::after {
+.home-exp-card-title::after, .room-card .room-title::after {
   content: "";
   position: absolute;
   left: 0;
@@ -375,9 +465,210 @@ header {
   transition: width 0.35s ease;
 }
 
-.experience-card:hover .home-exp-card-title::after {
+.experience-card:hover .home-exp-card-title::after,.rooms-card:hover .home-exp-card-title::after, .room-card:hover .room-title::after {
   width: 100%;
 }
+.rooms-card:hover .home-exp-card-title::after {
+  left: 20px;
+}
+.home-exp-card-line{
+  font-weight: 400;
+}
+
+/* Editorial Section Styles */
+#editorial {
+  background: url("../img/home-editorial-image-2.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-clip: ;
+}
+.editorial-wrapper {
+    width: 46%;
+    padding: 56px 48px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: rgba(15, 23, 42, 0.35);
+    backdrop-filter: blur(2px);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
+    transform: translateX(-40px);
+}
+#editorial .section-heading {
+  margin-bottom: 8px;
+  color: var(--text-light);
+}
+.editorial-wrapper,
+.editorial-wrapper * {
+  text-align: left;
+}
+.editorial-subtext {
+  color: rgba(230, 240, 245, 0.85);
+  margin-top: 18px;
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+}
+
+/* Home- Belief section */
+#belief {
+  background: url("../img/home_belief.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.belief-wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    text-align: center;
+    padding: 0 20px;
+}
+.home-belief-subtext {
+    color: var(--gold);
+    margin: 20px 0 0;
+    text-transform: uppercase;
+    opacity: 0.85;
+    letter-spacing: 0.12em;
+}
+
+/* Rooms section styles */
+#rooms {
+  background-color: var(--bg-light);
+}
+.rooms-wrapper {
+    min-height: 100vh;
+    min-height: 100svh;
+    gap: 50px;
+}
+.rooms-card {
+    width: 32%;
+    max-width: 300px;
+    min-height: 300px;
+    box-shadow:
+    0 12px 28px rgba(0, 0, 0, 0.08);
+    transition: transform 0.35s ease,
+    box-shadow 0.35s ease;
+    
+    background-color: #fff;
+}
+.rooms-card:hover {
+  transform: translateY(-6px);
+  box-shadow:
+    0 18px 36px rgba(0, 0, 0, 0.12);
+}
+
+.rooms-card img {
+    height: 150px;
+}
+
+/* ============ Suites and rooms page =============== */
+#rooms_suites_hero {
+  background: url('../img/rooms_page_hero_bg_1.jpg') no-repeat center center/cover;
+}
+
+.rooms-suites-page-subtext {
+  width: 50%;
+  font-size: 1.6rem;
+  padding: 20px;
+  text-align-last: center;
+  font-weight: 400;
+  opacity: 0.85;
+}
+.rooms-grid{
+  flex-wrap: wrap;
+  gap: 30px;
+}
+.room-card{
+  min-height: 350px;
+  width: 30%;
+  flex: 1;
+    background-color: #fff;
+  /* refined shadow */
+  box-shadow:
+    0 12px 28px rgba(0, 0, 0, 0.08);
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+.room-card-info{
+  flex: 1;
+}
+.room-card img{
+  height: 200px;
+}
+.room-description{
+  font-weight: 400;
+  letter-spacing: 0.01rem;
+}
+#bathrooms{
+  background: url('../img/bathroom.jpg') no-repeat center center/cover;
+}
+
+#signature_suite{
+  background: url('../img/luxury_suite.jpg') no-repeat center center/cover;
+}
+
+/*  Experiences Styles */
+#experience_hero{
+  background: url('../img/rooms_page_hero_bg.jpg') no-repeat center center/cover;
+}
+
+/* ===============================
+   EXPERIENCES HERO
+================================ */
+
+:root {
+  --bg-dark: #0f172a;
+  --text-light: rgba(245,248,250,0.95);
+}
+
+#experience-split {
+  display: grid;
+  grid-template-columns: 45% 55%;
+  min-height: 200vh;
+  background-color: var(--bg-dark);
+}
+
+.experience-text {
+  padding: 35vh 80px 120px;
+}
+
+.experience-block {
+    max-width: 420px;
+    margin: 45vh 0;
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.7s ease,
+    transform 0.7s ease;
+}
+
+.experience-block.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.experience-block h2 {
+  font-size: 2.4rem;
+  color: var(--text-light);
+  margin-bottom: 12px;
+}
+
+.experience-block p {
+  color: rgba(230,240,245,0.75);
+  line-height: 1.7;
+}
+
+.experience-image {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  background: url("../img/experience_hero_hotel_img.jpg")
+    center / cover no-repeat;
+}
+
+
 
 /* footer styles */
 footer {
