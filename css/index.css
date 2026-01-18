@@ -325,6 +325,7 @@ header {
 }
 .hero{
   background-attachment: fixed !important;
+  min-height: 100vh;
 }
 #hero{
     position: relative;
@@ -367,9 +368,20 @@ header {
 }
 
 .hero-title {
+  padding-left: 15px;
   font-size: clamp(3rem, 6vw, 5rem);
-  line-height: 1.1;
+  line-height: 1.5;
   color: rgba(245, 248, 250, 0.95);
+  position: relative;
+}
+.hero-title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 4px;
+  background-color: var(--gold);
 }
 .hero-location{
   font-size: 1.25rem;
@@ -891,6 +903,12 @@ header {
 .invitation-link:hover {
   border-color: var(--gold);
   opacity: 0.9;
+}
+
+/* Contact Page Styles */
+#contact_hero{
+  background: url('../img/contact_hero_bg.jpg') no-repeat center center/cover;
+  background-attachment: fixed !important;
 }
 
 /* footer styles */
