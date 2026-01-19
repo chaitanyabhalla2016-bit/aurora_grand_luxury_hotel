@@ -1,6 +1,7 @@
 :root {
   --alpha-constant: 0.25;
   --bg-dark: #0f172a;
+  --bg-dark-alpha: rgba(15, 23, 42, 0.8);
   --bg-light: #f8fafc;
   --gold: #c9a14a;
   --gold-alpha: #b28b348f;
@@ -86,6 +87,9 @@ a.section-btn:hover {
 .text-dark{
   color: var(--bg-dark) !important;
 }
+.text-gold{
+  color: var(--gold) !important;
+}
 .sub-container {
     min-height: 100svh;
     width: 100%;
@@ -104,6 +108,9 @@ main{
 i[class *="fa-"] {
   color: var(--gold);
 }
+a{
+  text-decoration: none;
+}
 .page-section {
   min-height: 100vh;
   min-height: 100svh;
@@ -117,9 +124,9 @@ i[class *="fa-"] {
 .z-top{
   z-index: +10;
 }
-a:not(a.nav-link),a.btn,.btn,button{
+a:not(a.nav-link),a.btn,.btn,button,address{
   font-weight: 500;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
 }
 .btn {
   display: inline-block;
@@ -158,6 +165,12 @@ img {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
+}
+.flex-row-space-evenly{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
   align-items: center;
 }
 .flex-column-center{
@@ -218,6 +231,9 @@ img {
 
 .p5020{
   padding: 50px 20px;
+}
+.p10020{
+  padding: 100px 20px;
 }
 /* Navbar styles */
 .navbar{
@@ -910,7 +926,49 @@ header {
   background: url('../img/contact_hero_bg.jpg') no-repeat center center/cover;
   background-attachment: fixed !important;
 }
+#contact_form{
+  background: url('../img/luxury_suite.jpg') no-repeat center center/cover;
+  background-attachment: fixed !important;
+}
+form {
+	width: 90%;
+	max-width: 600px;
+  padding: 1.5rem;
+  border-radius: 5px;
+}
+.block-label{
+  width: 100%;
+}
 
+label{
+  text-transform: capitalize;
+  color: var(--gold);
+  font-size: 1.2rem;
+  min-width: 75px;
+}
+.custom-label {
+	position: relative;
+	display: inline-flex;
+	padding: 15px 5px;
+	gap: 1rem;
+	text-transform: capitalize;
+	border: 1px solid var(--gold-alpha);
+}
+.input-group {
+	display: flex;
+	width: 100%;
+	gap: 0.5rem;
+	font-size: 1.2rem;
+}
+input[type="text"],input[type="date"],input[type="number"]{
+  display: inline-flex;
+  flex: 1;
+  line-height: 1.2;
+  padding: 5px;
+}
+.self-align-center{
+  align-self: center;
+}
 /* footer styles */
 footer {
   padding: 0.25rem 0;

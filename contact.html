@@ -46,9 +46,56 @@
             </div>
         </header>
         <section class="full-width-container" id="contact_info">
-            <div class="container p5020">
-                
+            <div class="container">
+                <div class="info-container p10020 flex-row-space-evenly">
+                    <address class="text-gold">123, ABC, DEF, Italy</address>
+                    <a class="text-gold" href="mailto:xyz@gmail.com">auroraluxuryhotel@gmail.com</a>
+                    <a class="text-gold" href="tel:+911234567890">+91-1234567890</a>
+                </div>
             </div>
+        </section>
+        <section class="full-width-container h-100vh  pos-relative" id="contact_form">
+            <div class="hero-overlay">
+                <div class="container flex-row-center">
+                    <form action="/send-message" method="post" class="flex-column-left-center bg-filter">
+                        <div class="input-group">
+                            <label for="contactName">
+                                name
+                            </label>
+                            <input type="text" id="contactName" name="contactName">
+                        </div>
+                        <div class="input-group">
+                            <label for="contactFromDate">
+                                from
+                            </label>
+                            <input type="date" id="contactFromDate" name="contactFromDate">
+                            <label for="contactToDate">
+                                to
+                            </label>
+                            <input type="date" id="contactToDate" name="contactToDate">
+                        </div>
+                        <div class="input-group">
+                            <label for="contactAdults">
+                                Adults
+                            </label>
+                            <input type="number" min="1" max="2"id="contactAdults" name="contactAdults">
+                            <label for="contactChildren">
+                                Children
+                            </label>
+                            <input type="number" min="1" max="2" id="contactChildren" name="contactChildren">
+                            <label for="contactNumberOfRooms">
+                                Rooms
+                            </label>
+                            <input type="number" min="1" max="4" id="contactNumberOfRooms" name="contactNumberOfRooms">
+                        </div>
+                        <input type="submit" value="Reserve Rooms" class="btn self-align-center">
+                    </form>
+                        
+                </div>
+            </div>
+        </section>
+        <section class="full-width-container h-100vh" id="map_section">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1451.0621864255568!2d9.281237778088531!3d46.009823385719116!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478417c4729755e9%3A0x75ca35b950156256!2sCasa%20Contrada%20Bella%20Accommodations!5e0!3m2!1sen!2sin!4v1768836672389!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </section>
     </main>
     <footer class="full-width-container">
